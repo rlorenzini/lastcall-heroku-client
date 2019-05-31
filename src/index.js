@@ -16,8 +16,8 @@ import * as serviceWorker from './serviceWorker';
 import reducer from './components/stores/reducers/reducer';
 import { setAuthenticationHeader } from './components/utils/authentication';
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
+const store = createStore(reducer)
+//, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 setAuthenticationHeader(localStorage.getItem('jsonwebtoken'))
 
 ReactDOM.render(

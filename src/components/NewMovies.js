@@ -6,7 +6,7 @@ import movieData from '../movieData.json'
 
 export class NewMovies extends Component {
     constructor(props) {
-        let url = "https://thelastcall.herokuapp.com/new-releases"
+        let url = "https://lastcall-server.herokuapp.com/new-releases"
         fetch(url)
             .then(response => response.json())
             .then(json => {
@@ -26,7 +26,7 @@ export class NewMovies extends Component {
 
     }
     componentDidMount() {
-        let url = "https://thelastcall.herokuapp.com/new-releases"
+        let url = "https://lastcall-server.herokuapp.com/new-releases"
         fetch(url)
             .then(response => response.json())
             .then(json => {

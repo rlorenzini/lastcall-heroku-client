@@ -23,7 +23,7 @@ class Register extends Component {
   }
 
   handleSubmitRegistration=()=>(
-    axios.post('https://thelastcall.herokuapp.com/register',{
+    axios.post('https://lastcall-server.herokuapp.com/register',{
       username: this.state.username,
       password: this.state.password,
       firstName: this.state.firstName,

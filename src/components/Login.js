@@ -15,7 +15,7 @@ class Login extends Component {
   }
 
   handleSubmitLogin = () => (
-    fetch('https://cors-anywhere.herokuapp.com/https://lastcall-server.herokuapp.com/login', {
+    fetch('https://lastcall-server.herokuapp.com/login', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

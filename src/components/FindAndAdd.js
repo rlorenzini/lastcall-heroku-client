@@ -11,21 +11,28 @@ class FindAndAdd extends Component {
         this.state = {
             title: '',
             returnedMovies: [],
+            loading: false,
             userid: localStorage.getItem('userid')
         }
     }
 
     handleFindMovie = () => {
         let title = this.state.title
-        let OMDB_API_KEY = process.env.OMDB_API_KEY
-        let moviesURL = "https://www.omdbapi.com/?s=" + title + "&apikey=" + OMDB_API_KEY
+        let OMDB_KEY = process.env.REACT_APP_OMDB_KEY
+        let moviesURL = "https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=" + title + "&apikey=" + OMDB_KEY
 
         fetch(moviesURL)
             .then(response => response.json())
             .then(json => {
+              if(json.Response === "False") {
                 this.setState({
-                    returnedMovies: json.Search
+                  loading: true,
                 })
+              } else {
+                this.setState({
+                    returnedMovies: json.Search,
+                    loading: false
+                })}
             }).then(() => {
                 console.log(this.state.returnedMovies)
             })
@@ -62,15 +69,18 @@ class FindAndAdd extends Component {
 
     render() {
         let omdbList = this.state.returnedMovies
-        let movieItems = omdbList.map((movie) => {
-            return (
-                <li key={movie.imdbID}>
-                    <img className="omdb-poster" alt={movie.Poster} src={movie.Poster}></img>
-                    <p>{movie.Title}</p>
-                    <button onClick={this.handleAddToWatchList} name={movie.Title} id={movie.imdbID}>Add to Watch List</button>
-                </li>
-            )
-        })
+        let movieItems = (<h3>Search Returned 0 Matches</h3>)
+        if (!this.state.loading) {
+            movieItems = omdbList.map((movie) => {
+                return (
+                    <li key={movie.imdbID}>
+                        <img className="omdb-poster" alt={movie.Poster} src={movie.Poster}></img>
+                        <p>{movie.Title}</p>
+                        <button onClick={this.handleAddToWatchList} name={movie.Title} id={movie.imdbID}>Add to Watch List</button>
+                    </li>
+                )
+            })
+        }
         return (
             <div className="omdbDiv">
                 <h2>Add a Movie</h2>

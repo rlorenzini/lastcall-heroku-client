@@ -16,7 +16,7 @@ class WatchList extends Component {
         }
     }
     componentDidMount() {
-        let url = "http://localhost:8080/user-watch-list"
+        let url = "https://thelastcall.herokuapp.com/user-watch-list"
         fetch(url, {
             method: "POST",
             headers: {
@@ -32,7 +32,7 @@ class WatchList extends Component {
     }
 
     removeMovie = (e) => {
-        fetch('http://localhost:8080/delete-movie', {
+        fetch('https://thelastcall.herokuapp.com/delete-movie', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

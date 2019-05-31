@@ -15,7 +15,7 @@ class Login extends Component {
   }
 
   handleSubmitLogin = () => (
-    fetch('http://localhost:8080/login', {
+    fetch('https://thelastcall.herokuapp.com/login', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

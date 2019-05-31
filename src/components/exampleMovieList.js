@@ -7,7 +7,7 @@ import movieData from '../movieData.json'
 export class ExampleMovieList extends Component {
 
     constructor(props) {
-        let url = "http://localhost:8080/expiring"
+        let url = "https://thelastcall.herokuapp.com/expiring"
         fetch(url, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -29,7 +29,7 @@ export class ExampleMovieList extends Component {
         }
     }
     componentDidMount() {
-        let url = "http://localhost:8080/expiring"
+        let url = "https://thelastcall.herokuapp.com/expiring"
         fetch(url, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"

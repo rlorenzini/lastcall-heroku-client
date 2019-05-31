@@ -46,7 +46,7 @@ class FindAndAdd extends Component {
     }
 
     handleAddToWatchList = (e) => {
-        fetch('http://localhost:8080/add-movie', {
+        fetch('https://thelastcall.herokuapp.com/add-movie', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

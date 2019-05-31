@@ -18,7 +18,7 @@ class FindAndAdd extends Component {
     handleFindMovie = () => {
         let title = this.state.title
         let OMDB_API_KEY = process.env.OMDB_API_KEY
-        let moviesURL = "http://www.omdbapi.com/?s=" + title + "&apikey=" + OMDB_API_KEY
+        let moviesURL = "https://www.omdbapi.com/?s=" + title + "&apikey=" + OMDB_API_KEY
 
         fetch(moviesURL)
             .then(response => response.json())
